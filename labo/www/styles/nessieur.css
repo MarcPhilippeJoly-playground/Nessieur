@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@400;700&family=Roboto:ital,wght@0,100;1,100&display=swap');
+
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+html {
+    --margin: 16px;
+    --padding: var(--margin);
+    --border: 1px solid gold;
+    --plate-background: #030303;
+    --carved-border : 2px groove #b8860b3f ;
+    --plate-border: calc(var(--padding) / 4) solid #b8860b07;
+
+    font-family: 'Roboto';
+}
+
+body {
+    margin: 0;
+    padding: var(--padding);
+    background: black;
+    color: white;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+h1,h2,h3,h4,h5,h6, legend {
+    font-family: 'Martel Sans';
+    color: gold;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+}
+
+/* canvas3D est pris en sandwich entre output3D et output3D::after */
+#output3D {
+    display: block;
+    position: relative;
+   width: calc((100vw - var(--margin)*2));
+    min-height: calc((100vw - var(--margin)*2)/2);
+    margin: var(--margin) 0;
+}
+#output3D::after {
+    content:'';
+    display: block;
+    position: absolute;
+    color: white;
+    /* On fait exprès de déborder un peu de l'élément qu'on cherche à masquer, parce que ce que Three.js dessine dans le canevas juste en-dessous peut scintiller par crénage au bord du masque. */
+    --debord: 2px;
+    left: calc(-1 * var(--debord));
+    top: calc(-1 * var(--debord));
+    min-width: calc(100% + var(--debord) * 2);
+    min-height: calc(100% + var(--debord) * 2);
+    border-radius: 50%;
+    /* box-shadow est incapable de masquer ce qui est dessiné dans output3D. Du coup, c'est dégradé central du fond de ::after qui assure le fondu par avec le fond de page, par masque de la même couleur et plus ou moins transparent */
+    background-image: radial-gradient(closest-side, #0000, #0000, #000f);
+
+}
+#canvas3D {
+    display: block;
+    position: absolute;
+    background: #030303;
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 50%;
+    /* *
+    border: var(--border);
+    box-shadow: 0 0 var(--padding) DarkGoldenrod;
+    /**/
+}
+
+section, nav {
+        display: flex;
+    gap: var(--margin);
+
+    margin: var(--margin) 0;
+    padding: var(--padding);
+    background: var(--plate-background);
+    box-shadow: var(--plate-shadow) ;
+    border-top: var(--plate-border);
+}
+
+button {
+    background: var(--plate-background);
+    color: white;
+    border-radius: var(--padding);
+}
+
+fieldset {
+    margin: 0;
+    padding: var(--padding);
+    border-radius: 1px;
+    position: relative;
+    padding: var(--padding);
+    padding-top: calc(var(--padding)*2);
+    display: flex;
+    gap: 2em;
+    border: var(--carved-border);
+}
+legend {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-inline: var(--padding);
+}
+
+nav > div, fieldset > div {
+    display: flex;
+}

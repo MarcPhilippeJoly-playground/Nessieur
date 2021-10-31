@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nessieur</title>
+        <link rel="stylesheet" href="./styles/nessieur.css">
+        <script src="./scripts/nessieur.js" type="module"></script>
+    </head>
+
+    <body>
+        <header>
+            <h1>Nessieur</h1>
+            <blockquote>L'univers est un sac de nœuds.</blockquote>
+        </header>
+        <output for="camera_type cam_distance_range" id="output3D">
+            <canvas id="canvas3D"></canvas>
+        </output>
+
+        <section>
+            <header>
+                <h3>Contrôles</h3>
+            </header>
+            <fieldset>
+                <legend>camera</legend>
+                <fieldset>
+                    <legend>type</legend>
+                    <div>
+                        <label for="">Immergée</label>
+                        <input type="radio" name="camera_type" id="">
+                    </div>
+                    <div>
+                        <label for="">Extérieure</label>
+                        <input type="radio" name="camera_type" id="">
+                    </div>
+                    <div>
+                        <label for="">Mobile</label>
+                        <input type="radio" name="camera_type" id="">
+                    </div>
+
+                </fieldset>
+                <div>
+                    <input type="range" name="cam_distance" id="cam_distance_range" min="1" max="1000" value="100">
+                    <output for="cam_distance_range">100m</output>
+                </div>
+            </fieldset>
+        </section>
+        <section>
+            <header>
+                <h3>Paramètres</h3>
+            </header>
+            <button id="restart_button">Restart</button>
+
+        </section>
+        <section>
+            <header>
+                <h3>Statistiques</h3>
+            </header>
+        </section>
+    </body>
+
+</html>
