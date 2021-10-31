@@ -4,19 +4,20 @@
     2021
 */
 
-/***********/
-/* IMPORTS */
-/***********/
+//========
+// IMPORTS
+//========
+
 
 import * as THREE from './three/build/three.module.js'
 
+//=======
+// PARAMS
+//=======
 
-/**********/
-/* PARAMS */
-/**********/
 
 // ? Chez moi, avec MAX_POINTS à 2^20, on obtient en deux secondes de calcul de quoi rendre l'écran intéressant pendant plus d'une minute. Le temps réel est donc tout à fait envisageable au lieu du différé. Il faudrait seulement limiter le nombre de segments affichés à environ 2^16, même si beaucoup plus sont calculés, pour que le rendu vidéo puisse suivre à plus de 25rps.
-//! Chez moi, l'affichage rame visiblement au-delà de 2^19
+// ! Chez moi, l'affichage rame visiblement au-delà de 2^19
 let MAX_POINTS = 2 ** 18;
 let DRAW_STEP = 200;
 let STEP_SIZE = 1;
@@ -34,8 +35,9 @@ let line;
 let drawCount;
 
 
-//===========================
-// UTILITY METHODS
+//==========
+// UTILITIES
+//==========
 
 // a simple 2D sized array builder
 /**
