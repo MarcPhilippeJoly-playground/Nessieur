@@ -8,7 +8,6 @@
 // IMPORTS
 //========
 
-
 import * as THREE from './three/build/three.module.js'
 
 //=======
@@ -207,7 +206,7 @@ function restart() {
 }
 
 // animate
-function animate() {
+function animate(timestamp) {
 
     const positions = line.geometry.attributes.position.array;
 
@@ -234,7 +233,7 @@ function animate() {
  * ## defered execution
  * We wait for the DOMContentLoaded event before runing
  */
-window.addEventListener('DOMCOntentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', (event) => {
     init();
     const restartButton = document.getElementById('restart_button');
     restartButton.addEventListener("mousedown", restart);
